@@ -39,6 +39,7 @@ function askForName() {
   rl.question("Hello, how should i call you ? \n>", (answer) => {
     name = answer;
     console.log(`Great welcome to our casino ${ name }`);
+    gameLoop();
   });
 }
 
@@ -69,13 +70,11 @@ function askForCard(player_score, bank_score) {
 function gameLoop() {
   const bank_score = pickBankScore();
   let player_score = pickPlayerCard();
-  let name = askForName();
 
-  askForName();
   askForCard(player_score, bank_score);
 }
 
-gameLoop();
+askForName();
 
 module.exports = {
   pickBankScore,
